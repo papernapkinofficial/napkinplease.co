@@ -1,1 +1,128 @@
-Hello :)
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Paper Napkin Co.</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <meta
+      name="description"
+      content="Paper Napkin Co. — social media consulting (placeholder content)"
+    />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container">
+        <a class="brand" href="#">Paper Napkin Co.</a>
+        <nav class="nav" aria-label="Primary navigation">
+          <ul>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#work">Work</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container">
+          <h1>Paper Napkin Co.</h1>
+          <p class="tagline">
+            Placeholder tagline describing the social media consulting approach
+            and voice.
+          </p>
+          <a class="btn primary" href="#contact">Start a Project</a>
+        </div>
+      </section>
+
+      <section id="services" class="section services">
+        <div class="container">
+          <h2>Services</h2>
+          <div class="grid services-grid">
+            <article class="card">
+              <h3>Strategy</h3>
+              <p>
+                Placeholder description for strategy services — research,
+                planning, and roadmap creation.
+              </p>
+            </article>
+            <article class="card">
+              <h3>Content</h3>
+              <p>
+                Placeholder description for content creation — creative
+                direction, posts, and assets.
+              </p>
+            </article>
+            <article class="card">
+              <h3>Analytics</h3>
+              <p>
+                Placeholder description for analytics — reporting, insights, and
+                optimization.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="work" class="section work">
+        <div class="container">
+          <h2>Selected Work</h2>
+          <div class="grid work-grid">
+            <div class="work-item">Placeholder project 1</div>
+            <div class="work-item">Placeholder project 2</div>
+            <div class="work-item">Placeholder project 3</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="section about">
+        <div class="container">
+          <h2>About</h2>
+          <p>
+            Placeholder about text that explains the company's mission, values,
+            and high-level approach.
+          </p>
+        </div>
+      </section>
+
+      <section id="contact" class="section contact">
+        <div class="container">
+          <h2>Contact</h2>
+          <form class="contact-form" action="#" method="post">
+            <label>
+              <span>Name</span>
+              <input type="text" name="name" placeholder="Your name" />
+            </label>
+            <label>
+              <span>Email</span>
+              <input type="email" name="email" placeholder="you@example.com" />
+            </label>
+            <label>
+              <span>Message</span>
+              <textarea
+                name="message"
+                placeholder="Tell us about your project"
+              ></textarea>
+            </label>
+            <button type="submit" class="btn">Send</button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>
+          &copy; <span id="year">2025</span> Paper Napkin Co. — All placeholder
+          content.
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
