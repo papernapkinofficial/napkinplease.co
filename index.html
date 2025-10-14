@@ -1,128 +1,169 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Paper Napkin Co.</title>
-    <link rel="stylesheet" href="css/style.css" />
-    <meta
-      name="description"
-      content="Paper Napkin Co. — social media consulting (placeholder content)"
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Paper Napkin — Social Media Management</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Noto+Serif+Display:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap"
+      rel="stylesheet"
     />
+    <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
-    <header class="site-header">
-      <div class="container">
-        <a class="brand" href="#">Paper Napkin Co.</a>
-        <nav class="nav" aria-label="Primary navigation">
-          <ul>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#work">Work</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-        </nav>
-      </div>
-    </header>
+    <main class="snap-container">
+      <!-- Section 1: Hero -->
+      <section id="hero" class="panel hero">
+        <div class="hero__inner container">
+          <div class="brand">
+            <h1 class="logo"><span>PAPER</span><span>NAPKIN</span></h1>
+            <p class="tag">MEDIA. MANAGEMENT. MARKETING.</p>
+          </div>
+          <div class="hero__aside">
+            <p class="aside-big">
+              For brands who want clarity without compromise,
+            </p>
+            <p class="aside-small">and creativity with a pulse.</p>
+          </div>
+        </div>
+        <a class="skip" href="#manifesto" aria-label="Scroll to next section"
+          >▾</a
+        >
+      </section>
 
-    <main>
-      <section class="hero">
-        <div class="container">
-          <h1>Paper Napkin Co.</h1>
-          <p class="tagline">
-            Placeholder tagline describing the social media consulting approach
-            and voice.
-          </p>
-          <a class="btn primary" href="#contact">Start a Project</a>
+      <!-- Section 2: Manifesto -->
+      <section id="manifesto" class="panel manifesto">
+        <div class="container manifesto__grid">
+          <blockquote class="manifesto__quote">
+            <span>Because the</span>
+            <span>best ideas are</span>
+            <span>written on</span>
+            <span>paper napkins.</span>
+          </blockquote>
+          <div class="manifesto__copy">
+            <p>
+              We believe the best work happens where
+              <strong>instinct meets intention</strong>—when structure meets
+              spark. Our job isn’t to make you fit the mold; it’s to uncover
+              what <strong>makes you different</strong> and build something
+              <strong>unforgettable</strong> around it.
+            </p>
+            <hr class="rule" />
+          </div>
         </div>
       </section>
 
-      <section id="services" class="section services">
-        <div class="container">
-          <h2>Services</h2>
-          <div class="grid services-grid">
+      <!-- Section 3: What We Do -->
+      <section id="services" class="panel services">
+        <div class="container narrow">
+          <header class="section-head">
+            <h2 class="eyebrow">WHAT</h2>
+            <h2 class="title">WE DO</h2>
+          </header>
+
+          <div class="cards">
             <article class="card">
-              <h3>Strategy</h3>
+              <h3>Media Creation</h3>
               <p>
-                Placeholder description for strategy services — research,
-                planning, and roadmap creation.
+                From campaign shoots to podcast production, we craft visuals and
+                stories that feel alive—made with purpose, not presets.
               </p>
             </article>
             <article class="card">
-              <h3>Content</h3>
+              <h3>Marketing Strategy</h3>
               <p>
-                Placeholder description for content creation — creative
-                direction, posts, and assets.
+                Smart strategy meets creative instinct. We design campaigns that
+                connect who you are with who’s waiting to find you. Built for
+                impact, not just impressions.
               </p>
             </article>
             <article class="card">
-              <h3>Analytics</h3>
+              <h3>Brand Management</h3>
               <p>
-                Placeholder description for analytics — reporting, insights, and
-                optimization.
+                PR, newsletters, and social—handled personally, not passed off.
+                We keep your voice clear, consistent, and evolving across every
+                touchpoint.
               </p>
             </article>
           </div>
         </div>
       </section>
 
-      <section id="work" class="section work">
-        <div class="container">
-          <h2>Selected Work</h2>
-          <div class="grid work-grid">
-            <div class="work-item">Placeholder project 1</div>
-            <div class="work-item">Placeholder project 2</div>
-            <div class="work-item">Placeholder project 3</div>
+      <!-- Section 4: Our Story -->
+      <section id="story" class="panel story">
+        <div class="container story__grid">
+          <div class="story__copy">
+            <h2 class="eyebrow">OUR</h2>
+            <h2 class="title">STORY</h2>
+            <p class="lede">Every brand has a story…</p>
+            <p class="lede-sub">
+              Ours starts with two people who learned the rules of
+              marketing—then decided to write better ones.
+            </p>
+            <p class="lede-sub">
+              With over thirty years of combined experience in PR, media, and
+              strategy, Paper Napkin helps founder‑led and hospitality brands
+              tell stories that stick.
+            </p>
           </div>
+          <figure class="story__image">
+            <img
+              src="content/napkin-logo.jpg"
+              alt="Coffee ring on a paper napkin"
+            />
+          </figure>
         </div>
       </section>
 
-      <section id="about" class="section about">
-        <div class="container">
-          <h2>About</h2>
-          <p>
-            Placeholder about text that explains the company's mission, values,
-            and high-level approach.
-          </p>
+      <!-- Section 5: Contact -->
+      <section id="contact" class="panel contact">
+        <div class="contact__brand">Paper Napkin</div>
+        <div class="contact__bg" aria-hidden="true">
+          <img src="content/contact-photo.jpg" alt="" />
         </div>
-      </section>
 
-      <section id="contact" class="section contact">
-        <div class="container">
-          <h2>Contact</h2>
-          <form class="contact-form" action="#" method="post">
+        <div class="container contact__grid">
+          <header class="contact__head">
+            <h2>Contact Us</h2>
+            <p>
+              Every great partnership starts with a conversation…
+              <em>or a scribble on a napkin.</em>
+            </p>
+          </header>
+
+          <form
+            target="_blank"
+            action="https://formsubmit.co/08ea1df5edd67a9a0a82aa06c3cd1645 "
+            method="POST"
+            class="contact__form"
+          >
             <label>
-              <span>Name</span>
-              <input type="text" name="name" placeholder="Your name" />
+              <span class="sr-only">Name</span>
+              <input type="text" name="name" placeholder="Name" required />
             </label>
             <label>
-              <span>Email</span>
-              <input type="email" name="email" placeholder="you@example.com" />
+              <span class="sr-only">Email</span>
+              <input type="email" name="email" placeholder="Email" required />
             </label>
             <label>
-              <span>Message</span>
+              <span class="sr-only">Phone</span>
+              <input type="text" name="phone" placeholder="Phone" />
+            </label>
+            <label>
+              <span class="sr-only">About your brand</span>
               <textarea
                 name="message"
-                placeholder="Tell us about your project"
+                rows="4"
+                placeholder="About your brand"
               ></textarea>
             </label>
-            <button type="submit" class="btn">Send</button>
+            <!-- Maybe add back the spam protection and custom redirect later but not now -->
+            <button type="submit">Send</button>
           </form>
         </div>
       </section>
     </main>
 
-    <footer class="site-footer">
-      <div class="container">
-        <p>
-          &copy; <span id="year">2025</span> Paper Napkin Co. — All placeholder
-          content.
-        </p>
-      </div>
-    </footer>
-
-    <script>
-      document.getElementById("year").textContent = new Date().getFullYear();
-    </script>
+    <a class="backtotop" href="#hero" aria-label="Back to top">↑</a>
   </body>
 </html>
