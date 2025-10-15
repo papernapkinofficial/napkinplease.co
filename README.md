@@ -1,4 +1,4 @@
-# Paper Napkin — Media. Management. Marketing.
+# Paper Napkin — Media and marketing management
 
 Paper Napkin helps founder‑led and hospitality brands tell stories that stick.
 
