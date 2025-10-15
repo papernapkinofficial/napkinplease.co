@@ -207,6 +207,92 @@
             if (history.pushState) history.pushState(null, "", "#hero");
           });
         }
+
+        // Desktop wheel scrolling: advance a panel per gesture to avoid
+        // the "multiple scrolls" effect from CSS snap on traditional mice.
+        var scroller = document.querySelector(".snap-container");
+        if (scroller && !prefersReduced) {
+          var panels = Array.prototype.slice.call(
+            scroller.querySelectorAll(".panel")
+          );
+          if (panels.length) {
+            var isAnimating = false;
+            var pendingIndex = null;
+            var releaseTimer = null;
+
+            function nearestPanelIndex() {
+              var scrollTop = scroller.scrollTop;
+              var closest = 0;
+              var minDelta = Infinity;
+              for (var i = 0; i < panels.length; i++) {
+                var delta = Math.abs(panels[i].offsetTop - scrollTop);
+                if (delta < minDelta) {
+                  minDelta = delta;
+                  closest = i;
+                }
+              }
+              return closest;
+            }
+
+            function endAnimation() {
+              isAnimating = false;
+              pendingIndex = null;
+              if (releaseTimer) {
+                window.clearTimeout(releaseTimer);
+                releaseTimer = null;
+              }
+            }
+
+            function scrollToPanel(index) {
+              if (index < 0 || index >= panels.length) return;
+              isAnimating = true;
+              pendingIndex = index;
+              panels[index].scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+              });
+              if (releaseTimer) window.clearTimeout(releaseTimer);
+              releaseTimer = window.setTimeout(endAnimation, 700);
+            }
+
+            scroller.addEventListener(
+              "wheel",
+              function (e) {
+                if (!e.deltaY || Math.abs(e.deltaY) <= Math.abs(e.deltaX)) {
+                  return;
+                }
+                if (isAnimating) {
+                  e.preventDefault();
+                  return;
+                }
+
+                var current = nearestPanelIndex();
+                var direction = e.deltaY > 0 ? 1 : -1;
+                var targetIndex = current + direction;
+                if (targetIndex < 0 || targetIndex >= panels.length) {
+                  return;
+                }
+
+                e.preventDefault();
+                scrollToPanel(targetIndex);
+              },
+              { passive: false }
+            );
+
+            scroller.addEventListener("scroll", function () {
+              if (!isAnimating || pendingIndex == null) return;
+              var target = panels[pendingIndex];
+              if (!target) {
+                endAnimation();
+                return;
+              }
+              var diff = Math.abs(target.offsetTop - scroller.scrollTop);
+              if (diff <= 2) {
+                endAnimation();
+              }
+            });
+          }
+        }
       })();
     </script>
   </body>
