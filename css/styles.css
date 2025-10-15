@@ -116,9 +116,9 @@ body {
   margin: 0 0 0.25rem 0;
   line-height: 0.9;
   letter-spacing: 0.02em;
-  font-family: "Noto Serif Display", "Noto Serif Display ExtraCondensed",
-    "Playfair Display", Georgia, serif;
-  font-weight: 600;
+  font-family: "Black Mango", "Noto Serif Display",
+    "Noto Serif Display ExtraCondensed", "Playfair Display", Georgia, serif;
+  font-weight: 500;
   font-size: clamp(42px, 8vw, 96px);
   text-transform: uppercase;
 }
@@ -295,11 +295,13 @@ body {
 
 .section-head .title {
   margin: 0;
-  font-family: "Noto Serif Display", "Playfair Display", Georgia, serif;
+  font-family: "Black Mango", "Noto Serif Display", "Playfair Display", Georgia,
+    serif;
   letter-spacing: 0.06em;
-  font-weight: 600;
+  font-weight: 500;
   font-size: clamp(48px, 9vw, 96px);
   line-height: 0.9;
+  text-transform: uppercase;
 }
 
 .cards {
@@ -317,11 +319,12 @@ body {
 
 .card h3 {
   margin-top: 0;
-  font-family: "Noto Serif Display", "Playfair Display", Georgia, serif;
+  font-family: "Black Mango", "Noto Serif Display", "Playfair Display", Georgia,
+    serif;
   text-transform: uppercase;
   text-align: center;
-  font-weight: 700;
-  letter-spacing: 0.02em;
+  font-weight: 600;
+  letter-spacing: 0.03em;
 }
 
 .card p {
@@ -455,8 +458,9 @@ body {
   margin: 0 0 0.5rem 0;
   font-family: "Black Mango", "Noto Serif Display", "Playfair Display", Georgia,
     serif;
-  font-weight: 800;
+  font-weight: 500;
   font-size: clamp(43.7px, 6.9vw, 73.6px); /* increased by 15% */
+  text-transform: uppercase;
 }
 
 .contact__head p {
