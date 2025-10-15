@@ -19,6 +19,11 @@
             <h1 class="logo"><span>PAPER</span><span>NAPKIN</span></h1>
             <p class="tag">MEDIA. MANAGEMENT. MARKETING.</p>
           </div>
+          <!-- Hero CTA: centered between logo and bottom -->
+          <a class="hero-cta" href="#manifesto" aria-label="Contact and more">
+            <span>Contact &amp; More</span>
+            <span class="hero-cta__arrow">▾</span>
+          </a>
           <div class="hero__aside">
             <p class="aside-big">
               For brands who want clarity without compromise,
@@ -26,9 +31,6 @@
             <p class="aside-small">and creativity with a pulse.</p>
           </div>
         </div>
-        <a class="skip" href="#manifesto" aria-label="Scroll to next section"
-          >▾</a
-        >
       </section>
 
       <!-- Section 2: Manifesto -->
@@ -165,5 +167,20 @@
     </main>
 
     <a class="backtotop" href="#hero" aria-label="Back to top">↑</a>
+
+    <script>
+      // Smooth-scroll behavior for the hero CTA. Uses scrollIntoView for best
+      // cross-browser compatibility (Safari respects behavior option here).
+      (function () {
+        var cta = document.querySelector(".hero-cta");
+        if (!cta) return;
+        cta.addEventListener("click", function (e) {
+          e.preventDefault();
+          var target = document.getElementById("manifesto");
+          if (!target) return;
+          target.scrollIntoView({ behavior: "smooth", block: "start" });
+        });
+      })();
+    </script>
   </body>
 </html>

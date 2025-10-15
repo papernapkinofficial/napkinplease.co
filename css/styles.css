@@ -158,15 +158,67 @@ body {
   opacity: 0.9;
 }
 
-.skip {
+/* Previously had a '.skip' quick link; removed in favor of the hero CTA */
+
+/* Hero centered CTA placed between the brand and the bottom */
+.hero-cta {
   position: absolute;
   left: 50%;
-  bottom: 24px;
+  /* sit at the very bottom of the hero (small inset from edge) */
+  bottom: 6%;
   transform: translateX(-50%);
+  z-index: 2;
   text-decoration: none;
   color: #fff;
-  font-size: 24px;
-  opacity: 0.7;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 600;
+  font-size: clamp(14px, 2.5vw, 20px);
+  opacity: 0.95;
+}
+
+/* Make the label slightly transparent while keeping the arrow fully visible */
+.hero-cta > span:first-child {
+  opacity: 0.72;
+}
+
+.hero-cta__arrow {
+  opacity: 1; /* explicitly ensure arrow remains fully opaque */
+}
+
+.hero-cta:hover {
+  opacity: 1;
+}
+
+.hero-cta__arrow {
+  display: block;
+  font-size: clamp(18px, 4vw, 28px);
+  line-height: 1;
+  transition: transform 320ms ease;
+  /* subtle up-down animation to draw attention */
+  animation: heroArrowFloat 2.4s ease-in-out infinite;
+}
+
+@keyframes heroArrowFloat {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(6px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-cta {
+    bottom: 4%;
+    font-size: clamp(16px, 3.6vw, 20px);
+  }
 }
 
 /* ========================
