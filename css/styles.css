@@ -568,3 +568,34 @@ body {
     max-height: calc(100vh - 120px);
   }
 }
+
+/* Strong small-width override: keep "Our Story" display type large on narrow viewports
+   (e.g. modern iPhones). Placed last so it overrides the height-aware rules above. */
+@media (max-width: 520px) {
+  .story__grid {
+    /* slightly reduce vertical padding so larger type doesn't push content out of the viewport */
+    padding-block: clamp(20px, 6vh, 80px);
+    gap: clamp(16px, 4vw, 40px);
+  }
+
+  /* Make the main story headings stay visibly large on small widths. The larger
+     clamp minimum prevents the headings from shrinking too far as the viewport narrows. */
+  .story .eyebrow,
+  .story .title {
+    font-size: clamp(56px, 11vw, 115.2px);
+    line-height: 1.02;
+  }
+
+  /* Keep supporting lede and sub-lede readable */
+  .story .lede,
+  .lede-sub {
+    font-size: clamp(18px, 4.5vw, 22px);
+    line-height: 1.45;
+  }
+
+  /* Ensure the image doesn't force extra height when larger type is used */
+  .story__image img {
+    max-height: calc(100vh - 140px);
+    object-fit: cover;
+  }
+}
