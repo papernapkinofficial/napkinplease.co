@@ -169,17 +169,44 @@
     <a class="backtotop" href="#hero" aria-label="Back to top">↑</a>
 
     <script>
-      // Smooth-scroll behavior for the hero CTA. Uses scrollIntoView for best
-      // cross-browser compatibility (Safari respects behavior option here).
+      // Smooth-scroll handlers for page anchors used in the UI.
+      // Respects prefers-reduced-motion.
       (function () {
+        var prefersReduced =
+          window.matchMedia &&
+          window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+        function smoothScrollToElement(el) {
+          if (!el) return;
+          if (prefersReduced) {
+            el.scrollIntoView(true);
+            return;
+          }
+          el.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+
+        // Hero CTA (already present)
         var cta = document.querySelector(".hero-cta");
-        if (!cta) return;
-        cta.addEventListener("click", function (e) {
-          e.preventDefault();
-          var target = document.getElementById("manifesto");
-          if (!target) return;
-          target.scrollIntoView({ behavior: "smooth", block: "start" });
-        });
+        if (cta) {
+          cta.addEventListener("click", function (e) {
+            e.preventDefault();
+            var target = document.getElementById("manifesto");
+            smoothScrollToElement(target);
+          });
+        }
+
+        // Back-to-top button
+        var back = document.querySelector(".backtotop");
+        if (back) {
+          back.addEventListener("click", function (e) {
+            e.preventDefault();
+            var target =
+              document.getElementById("hero") || document.documentElement;
+            smoothScrollToElement(target);
+            // update hash without jumping (optional)
+            if (history.pushState) history.pushState(null, "", "#hero");
+          });
+        }
       })();
     </script>
   </body>
