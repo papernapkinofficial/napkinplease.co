@@ -90,9 +90,20 @@ body {
    ======================== */
 .hero {
   color: var(--ink);
-  background: #000 url("../content/hero-texture.jpg") center/cover no-repeat
-    fixed;
+  background-color: #000;
+  background-image: url("../content/hero-texture.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   isolation: isolate;
+}
+
+@supports (-webkit-touch-callout: none) {
+  .hero {
+    /* iOS Safari loses the hero background after scroll when attachment is fixed. */
+    background-attachment: scroll;
+  }
 }
 
 .hero::after {
@@ -165,7 +176,7 @@ body {
   position: absolute;
   left: 50%;
   /* sit at the very bottom of the hero (small inset from edge) */
-  bottom: 6%;
+  bottom: clamp(96px, 10vh, 160px);
   transform: translateX(-50%);
   z-index: 2;
   text-decoration: none;
@@ -178,6 +189,19 @@ body {
   font-weight: 600;
   font-size: clamp(14px, 2.5vw, 20px);
   opacity: 0.95;
+}
+
+/* Lift the CTA above iOS Safari's bottom bar/notch safe area */
+.hero-cta {
+  bottom: calc(clamp(96px, 10vh, 160px) + env(safe-area-inset-bottom));
+}
+
+@supports (
+  bottom: calc(clamp(96px, 10vh, 160px) + constant(safe-area-inset-bottom))
+) {
+  .hero-cta {
+    bottom: calc(clamp(96px, 10vh, 160px) + constant(safe-area-inset-bottom));
+  }
 }
 
 /* Make the label slightly transparent while keeping the arrow fully visible */
@@ -216,7 +240,6 @@ body {
 
 @media (max-width: 640px) {
   .hero-cta {
-    bottom: 4%;
     font-size: clamp(16px, 3.6vw, 20px);
   }
 }
