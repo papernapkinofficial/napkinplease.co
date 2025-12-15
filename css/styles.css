@@ -130,7 +130,7 @@ body {
   font-family: "Black Mango", "Noto Serif Display",
     "Noto Serif Display ExtraCondensed", "Playfair Display", Georgia, serif;
   font-weight: 500;
-  font-size: clamp(42px, 8vw, 96px);
+  font-size: clamp(70px, 8vw, 96px);
   text-transform: uppercase;
 }
 
@@ -146,6 +146,7 @@ body {
   opacity: 0.85;
 }
 
+/* for brands who want clarity */
 .hero__aside {
   align-self: center; /* center vertically to match other panels */
   /* text-align: right; */
@@ -169,78 +170,107 @@ body {
   opacity: 0.9;
 }
 
-/* Previously had a '.skip' quick link; removed in favor of the hero CTA */
+/* Hero navigation container */
+.hero-nav {
+  position: absolute;
+  left: 50%;
+  /* position above the arrow */
+  bottom: clamp(120px, 13vh, 200px);
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  gap: clamp(24px, 4vw, 48px);
+  align-items: center;
+  justify-content: center;
+}
 
 /* Hero centered CTA placed between the brand and the bottom */
 .hero-cta {
-  position: absolute;
-  left: 50%;
-  /* sit at the very bottom of the hero (small inset from edge) */
-  bottom: clamp(96px, 10vh, 160px);
-  transform: translateX(-50%);
-  z-index: 2;
+  position: static;
   text-decoration: none;
   color: #fff;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 6px;
+  display: inline-block;
   font-family: "Playfair Display", Georgia, serif;
   font-weight: 600;
   font-size: clamp(14px, 2.5vw, 20px);
   opacity: 0.95;
 }
 
-/* Lift the CTA above iOS Safari's bottom bar/notch safe area */
-.hero-cta {
+/* Lift the nav above iOS Safari's bottom bar/notch safe area */
+.hero-nav {
   bottom: calc(clamp(96px, 10vh, 160px) + env(safe-area-inset-bottom));
 }
 
 @supports (
   bottom: calc(clamp(96px, 10vh, 160px) + constant(safe-area-inset-bottom))
 ) {
-  .hero-cta {
+  .hero-nav {
     bottom: calc(clamp(96px, 10vh, 160px) + constant(safe-area-inset-bottom));
   }
 }
 
-/* Make the label slightly transparent while keeping the arrow fully visible */
-.hero-cta > span:first-child {
+/* Make the label slightly transparent */
+.hero-cta > span {
   opacity: 0.72;
 }
 
-.hero-cta__arrow {
-  opacity: 1; /* explicitly ensure arrow remains fully opaque */
-}
-
-.hero-cta:hover {
+.hero-cta:hover > span {
   opacity: 1;
 }
 
 .hero-cta__arrow {
+  position: absolute;
+  left: 50%;
+  /* Position halfway between the nav and the bottom */
+  bottom: clamp(48px, 5vh, 80px);
+  transform: translateX(-50%);
+  z-index: 2;
+  opacity: 1;
+  color: #fff;
   display: block;
-  font-size: clamp(18px, 4vw, 28px);
+  font-size: clamp(24px, 4vw, 28px);
   line-height: 1;
   transition: transform 320ms ease;
   /* subtle up-down animation to draw attention */
   animation: heroArrowFloat 2.4s ease-in-out infinite;
 }
 
+.arrow-black {
+  color: #000;
+}
+
 @keyframes heroArrowFloat {
   0% {
-    transform: translateY(0);
+    transform: translateX(-50%) translateY(0);
   }
   50% {
-    transform: translateY(6px);
+    transform: translateX(-50%) translateY(6px);
   }
   100% {
-    transform: translateY(0);
+    transform: translateX(-50%) translateY(0);
   }
 }
 
 @media (max-width: 640px) {
+  .hero-nav {
+    flex-wrap: wrap;
+    gap: clamp(16px, 3vw, 24px);
+    max-width: 90vw;
+  }
+
   .hero-cta {
-    font-size: clamp(16px, 3.6vw, 20px);
+    font-size: clamp(12px, 3.2vw, 18px);
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-nav {
+    flex-direction: column;
+    gap: clamp(12px, 2.5vw, 18px);
+  }
+
+  .hero-cta {
+    font-size: clamp(14px, 3.6vw, 18px);
   }
 }
 
@@ -275,7 +305,7 @@ body {
 }
 .manifesto__copy p {
   margin: 0 0 1rem 0;
-  font-size: clamp(15px, 1.8vw, 18px);
+  font-size: clamp(15px, 2vw, 18px);
   line-height: 1.6;
 }
 
@@ -431,6 +461,38 @@ body {
   object-fit: cover;
 }
 
+/* Story back button - positioned at the very bottom */
+.story__back-btn {
+  position: absolute;
+  right: 0%;
+  top: 10%;
+  transform: translateX(-50%);
+  z-index: 2;
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(8px);
+  color: #fff;
+  text-decoration: none;
+  font-size: 24px;
+  transition: all 0.3s ease;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+}
+
+.story__back-btn:hover {
+  background: rgba(255, 255, 255, 0.35);
+  border-color: rgba(255, 255, 255, 0.6);
+  transform: translateX(-50%) translateY(-4px);
+}
+
+.story__back-btn span {
+  display: block;
+  line-height: 1;
+}
+
 /* ========================
    Section: Contact
    ======================== */
@@ -531,6 +593,38 @@ body {
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
 }
 
+/* Contact back button - positioned at the very bottom */
+.contact__back-btn {
+  position: absolute;
+  left: 50%;
+  bottom: 20px;
+  transform: translateX(-20%);
+  z-index: 2;
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(8px);
+  color: #fff;
+  text-decoration: none;
+  font-size: 24px;
+  transition: all 0.3s ease;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+}
+
+.contact__back-btn:hover {
+  background: rgba(255, 255, 255, 0.35);
+  border-color: rgba(255, 255, 255, 0.6);
+  transform: translateX(-50%) translateY(-4px);
+}
+
+.contact__back-btn span {
+  display: block;
+  line-height: 1;
+}
+
 /* ========================
    Utilities
    ======================== */
@@ -598,6 +692,12 @@ body {
   .cards {
     grid-template-columns: 1fr;
   }
+
+  .story__back-btn,
+  .contact__back-btn,
+  .pricing__back-btn {
+    bottom: 16px;
+  }
 }
 
 /* Height-aware adjustments: when the viewport is short, reduce paddings
@@ -612,7 +712,7 @@ body {
   }
 
   .manifesto__quote {
-    font-size: clamp(28px, 6vw, 56px);
+    font-size: clamp(40px, 6vw, 56px);
     line-height: 1.04;
   }
 

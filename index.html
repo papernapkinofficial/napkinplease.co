@@ -9,6 +9,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/styles.css" />
+    <link rel="icon" href="content/favicon.png" />
   </head>
   <body>
     <main class="snap-container">
@@ -20,10 +21,23 @@
             <p class="tag">MEDIA. MANAGEMENT. MARKETING.</p>
           </div>
           <!-- Hero CTA: centered between logo and bottom -->
-          <a class="hero-cta" href="#manifesto" aria-label="Contact and more">
-            <span>Contact &amp; More</span>
-            <span class="hero-cta__arrow">▾</span>
-          </a>
+          <nav class="hero-nav">
+            <a class="hero-cta" href="#manifesto" aria-label="About Us">
+              <span>About Us</span>
+            </a>
+            <a
+              class="hero-cta"
+              href="content/pn_service_menu.pdf"
+              target="_blank"
+              aria-label="Pricing"
+            >
+              <span>Pricing</span>
+            </a>
+            <a class="hero-cta" href="#contact" aria-label="Contact Us">
+              <span>Contact Us</span>
+            </a>
+          </nav>
+          <span class="hero-cta__arrow">▾</span>
           <div class="hero__aside">
             <p class="aside-big">
               For brands who want clarity without compromise,
@@ -53,9 +67,10 @@
             <hr class="rule" />
           </div>
         </div>
+        <span class="hero-cta__arrow">▾</span>
       </section>
 
-      <!-- Section 3: What We Do -->
+      <!-- Section 4: What We Do -->
       <section id="services" class="panel services">
         <div class="container narrow">
           <header class="section-head">
@@ -115,6 +130,9 @@
             />
           </figure>
         </div>
+        <a class="story__back-btn" href="#hero" aria-label="Back to top">
+          <span>↑</span>
+        </a>
       </section>
 
       <!-- Section 5: Contact -->
@@ -163,10 +181,13 @@
             <button type="submit">Send</button>
           </form>
         </div>
+        <a class="contact__back-btn" href="#hero" aria-label="Back to top">
+          <span>↑</span>
+        </a>
       </section>
     </main>
 
-    <a class="backtotop" href="#hero" aria-label="Back to top">↑</a>
+    <!-- <a class="backtotop" href="#hero" aria-label="Back to top">↑</a> -->
 
     <script>
       // Smooth-scroll handlers for page anchors used in the UI.
@@ -185,15 +206,20 @@
           el.scrollIntoView({ behavior: "smooth", block: "start" });
         }
 
-        // Hero CTA (already present)
-        var cta = document.querySelector(".hero-cta");
-        if (cta) {
+        // Hero CTAs (navigation links)
+        var ctas = document.querySelectorAll(".hero-cta");
+        ctas.forEach(function (cta) {
           cta.addEventListener("click", function (e) {
-            e.preventDefault();
-            var target = document.getElementById("manifesto");
-            smoothScrollToElement(target);
+            var href = this.getAttribute("href");
+            if (href && href.startsWith("#")) {
+              e.preventDefault();
+              var targetId = href.substring(1);
+              var target = document.getElementById(targetId);
+              smoothScrollToElement(target);
+            }
+            // For non-hash links (like PDFs), let default behavior happen
           });
-        }
+        });
 
         // Back-to-top button
         var back = document.querySelector(".backtotop");
@@ -207,6 +233,38 @@
             if (history.pushState) history.pushState(null, "", "#hero");
           });
         }
+
+        // Story section back button
+        var storyBack = document.querySelector(".story__back-btn");
+        if (storyBack) {
+          storyBack.addEventListener("click", function (e) {
+            e.preventDefault();
+            var target =
+              document.getElementById("hero") || document.documentElement;
+            smoothScrollToElement(target);
+            if (history.pushState) history.pushState(null, "", "#hero");
+          });
+        }
+
+        // Contact section back button
+        var contactBack = document.querySelector(".contact__back-btn");
+        if (contactBack) {
+          contactBack.addEventListener("click", function (e) {
+            e.preventDefault();
+            var target =
+              document.getElementById("hero") || document.documentElement;
+            smoothScrollToElement(target);
+            if (history.pushState) history.pushState(null, "", "#hero");
+          });
+        }
+
+        // // Set PDF zoom based on device
+        // var pricingPdf = document.getElementById("pricing-pdf");
+        // if (pricingPdf) {
+        //   var isMobile = window.matchMedia("(max-width: 640px)").matches;
+        //   var zoom = isMobile ? 100 : 75;
+        //   pricingPdf.src = "content/pn_service_menu.pdf#zoom=" + zoom;
+        // }
 
         // Desktop wheel scrolling: advance a panel per gesture to avoid
         // the "multiple scrolls" effect from CSS snap on traditional mice.
