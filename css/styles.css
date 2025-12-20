@@ -758,9 +758,12 @@ body {
   }
 
   .story__back-btn,
-  .contact__back-btn,
   .pricing__back-btn {
     bottom: 16px;
+  }
+  /* stay above safari bottom navigation bar */
+  .contact__back-btn {
+    bottom: 7%;
   }
 }
 
