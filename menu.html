@@ -71,6 +71,15 @@
         background-repeat: no-repeat;
       }
 
+      /* iOS Safari fix: prevents background from disappearing after scroll */
+      @supports (-webkit-touch-callout: none) {
+        .page-cover,
+        .detail-page,
+        .about-page {
+          background-attachment: scroll;
+        }
+      }
+
       /* ========================
          Cover Page (Page 1)
          ======================== */
@@ -452,6 +461,55 @@
           top: 15px;
           right: 15px;
           font-size: clamp(28px, 8vw, 40px);
+        }
+      }
+
+      /* ========================
+         Scroll-up Animation
+         ======================== */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      .page {
+        animation: fadeIn 0.8s ease-out forwards;
+      }
+
+      /* Stagger the animations for each page */
+      .page:nth-child(1) {
+        animation-delay: 0s;
+      }
+
+      .page:nth-child(2) {
+        animation-delay: 0.1s;
+        opacity: 0;
+      }
+
+      .page:nth-child(3) {
+        animation-delay: 0.2s;
+        opacity: 0;
+      }
+
+      .page:nth-child(4) {
+        animation-delay: 0.3s;
+        opacity: 0;
+      }
+
+      .page:nth-child(5) {
+        animation-delay: 0.4s;
+        opacity: 0;
+      }
+
+      /* Respect reduced motion preferences */
+      @media (prefers-reduced-motion: reduce) {
+        .page {
+          animation: none;
+          opacity: 1;
         }
       }
 
