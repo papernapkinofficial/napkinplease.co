@@ -86,6 +86,107 @@ body {
 }
 
 /* ========================
+   Text Content Animation
+   ======================== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Apply fade-in to main content elements */
+.brand,
+.hero-nav,
+.hero-cta__arrow,
+.hero__aside,
+.manifesto__quote,
+.manifesto__copy,
+.section-head,
+.cards,
+.story__copy,
+.story__image,
+.contact__head,
+.contact__form {
+  animation: fadeIn 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+/* Staggered delays for hero section */
+.brand {
+  animation-delay: 0.1s;
+}
+
+.hero-nav {
+  animation-delay: 0.2s;
+}
+
+.hero-cta__arrow {
+  animation-delay: 0.25s;
+}
+
+.hero__aside {
+  animation-delay: 0.3s;
+}
+
+/* Manifesto section */
+.manifesto__quote {
+  animation-delay: 0.1s;
+}
+
+.manifesto__copy {
+  animation-delay: 0.3s;
+}
+
+/* Services section */
+.section-head {
+  animation-delay: 0.1s;
+}
+
+.cards {
+  animation-delay: 0.3s;
+}
+
+/* Story section */
+.story__copy {
+  animation-delay: 0.1s;
+}
+
+.story__image {
+  animation-delay: 0.3s;
+}
+
+/* Contact section */
+.contact__head {
+  animation-delay: 0.1s;
+}
+
+.contact__form {
+  animation-delay: 0.3s;
+}
+
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .brand,
+  .hero-nav,
+  .hero-cta__arrow,
+  .hero__aside,
+  .manifesto__quote,
+  .manifesto__copy,
+  .section-head,
+  .cards,
+  .story__copy,
+  .story__image,
+  .contact__head,
+  .contact__form {
+    animation: none;
+    opacity: 1;
+  }
+}
+
+/* ========================
    Section: Hero
    ======================== */
 .hero {
