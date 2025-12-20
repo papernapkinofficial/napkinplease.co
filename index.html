@@ -25,11 +25,7 @@
             <a class="hero-cta" href="#manifesto" aria-label="About Us">
               <span>About Us</span>
             </a>
-            <a
-              class="hero-cta"
-              href="menu.html"
-              aria-label="Pricing"
-            >
+            <a class="hero-cta" href="menu.html" aria-label="Pricing">
               <span>Pricing</span>
             </a>
             <a class="hero-cta" href="#contact" aria-label="Contact Us">
@@ -49,17 +45,17 @@
       <!-- Section 2: Manifesto -->
       <section id="manifesto" class="panel manifesto">
         <div class="container manifesto__grid">
-          <blockquote class="manifesto__quote">
+          <blockquote class="manifesto__quote fade-on-scroll">
             <span>Because the</span>
             <span>best ideas are</span>
             <span>written on</span>
             <span>paper napkins.</span>
           </blockquote>
-          <div class="manifesto__copy">
+          <div class="manifesto__copy fade-on-scroll">
             <p>
               We believe the best work happens where
               <strong>instinct meets intention</strong>—when structure meets
-              spark. Our job isn’t to make you fit the mold; it’s to uncover
+              spark. Our job isn't to make you fit the mold; it's to uncover
               what <strong>makes you different</strong> and build something
               <strong>unforgettable</strong> around it.
             </p>
@@ -72,12 +68,12 @@
       <!-- Section 4: What We Do -->
       <section id="services" class="panel services">
         <div class="container narrow">
-          <header class="section-head">
+          <header class="section-head fade-on-scroll">
             <h2 class="eyebrow">WHAT</h2>
             <h2 class="title">WE DO</h2>
           </header>
 
-          <div class="cards">
+          <div class="cards fade-on-scroll">
             <article class="card">
               <h3>Media Creation</h3>
               <p>
@@ -108,7 +104,7 @@
       <!-- Section 4: Our Story -->
       <section id="story" class="panel story">
         <div class="container story__grid">
-          <div class="story__copy">
+          <div class="story__copy fade-on-scroll">
             <h2 class="eyebrow">OUR</h2>
             <h2 class="title">STORY</h2>
             <p class="lede">Every brand has a story…</p>
@@ -122,7 +118,7 @@
               tell stories that stick.
             </p>
           </div>
-          <figure class="story__image">
+          <figure class="story__image fade-on-scroll">
             <img
               src="content/napkin-logo.jpg"
               alt="Coffee ring on a paper napkin"
@@ -142,7 +138,7 @@
         </div>
 
         <div class="container contact__grid">
-          <header class="contact__head">
+          <header class="contact__head fade-on-scroll">
             <h2>Contact Us</h2>
             <p>
               Every great partnership starts with a conversation…
@@ -154,7 +150,7 @@
             target="_blank"
             action="https://formsubmit.co/08ea1df5edd67a9a0a82aa06c3cd1645 "
             method="POST"
-            class="contact__form"
+            class="contact__form fade-on-scroll"
           >
             <label>
               <span class="sr-only">Name</span>
@@ -349,6 +345,35 @@
               }
             });
           }
+        }
+
+        // Intersection Observer for scroll-triggered fade-in animations
+        if (!prefersReduced && "IntersectionObserver" in window) {
+          var fadeElements = document.querySelectorAll(".fade-on-scroll");
+          var observerOptions = {
+            root: null,
+            rootMargin: "0px",
+            threshold: 0.1,
+          };
+
+          var observer = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+                observer.unobserve(entry.target);
+              }
+            });
+          }, observerOptions);
+
+          fadeElements.forEach(function (element) {
+            observer.observe(element);
+          });
+        } else {
+          // Fallback for browsers without IntersectionObserver or when motion is reduced
+          var fadeElements = document.querySelectorAll(".fade-on-scroll");
+          fadeElements.forEach(function (element) {
+            element.classList.add("visible");
+          });
         }
       })();
     </script>

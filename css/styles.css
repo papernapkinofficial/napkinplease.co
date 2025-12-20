@@ -101,15 +101,7 @@ body {
 .brand,
 .hero-nav,
 .hero-cta__arrow,
-.hero__aside,
-.manifesto__quote,
-.manifesto__copy,
-.section-head,
-.cards,
-.story__copy,
-.story__image,
-.contact__head,
-.contact__form {
+.hero__aside {
   animation: fadeIn 0.8s ease-out forwards;
   opacity: 0;
 }
@@ -131,40 +123,14 @@ body {
   animation-delay: 0.3s;
 }
 
-/* Manifesto section */
-.manifesto__quote {
-  animation-delay: 0.1s;
+/* Scroll-triggered animation for elements below hero */
+.fade-on-scroll {
+  opacity: 0;
+  transition: opacity 0.8s ease-out;
 }
 
-.manifesto__copy {
-  animation-delay: 0.3s;
-}
-
-/* Services section */
-.section-head {
-  animation-delay: 0.1s;
-}
-
-.cards {
-  animation-delay: 0.3s;
-}
-
-/* Story section */
-.story__copy {
-  animation-delay: 0.1s;
-}
-
-.story__image {
-  animation-delay: 0.3s;
-}
-
-/* Contact section */
-.contact__head {
-  animation-delay: 0.1s;
-}
-
-.contact__form {
-  animation-delay: 0.3s;
+.fade-on-scroll.visible {
+  opacity: 1;
 }
 
 /* Respect user's motion preferences */
@@ -172,17 +138,14 @@ body {
   .brand,
   .hero-nav,
   .hero-cta__arrow,
-  .hero__aside,
-  .manifesto__quote,
-  .manifesto__copy,
-  .section-head,
-  .cards,
-  .story__copy,
-  .story__image,
-  .contact__head,
-  .contact__form {
+  .hero__aside {
     animation: none;
     opacity: 1;
+  }
+
+  .fade-on-scroll {
+    opacity: 1;
+    transition: none;
   }
 }
 
