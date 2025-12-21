@@ -281,7 +281,7 @@ body {
 }
 
 .about-title {
-  font-family: "Playfair Display", Georgia, serif;
+  font-family: "Black Mango", "Playfair Display", Georgia, serif;
   font-size: clamp(60px, 14vw, 160px);
   font-weight: 400;
   line-height: 0.9;
