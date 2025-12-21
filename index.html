@@ -253,8 +253,40 @@
           });
         }
 
+        // Trackpad detection: trackpads typically send smaller, more frequent deltaY values
+        var isTrackpad = false;
+        var trackpadCheckCount = 0;
+        var trackpadDetectionComplete = false;
+
+        function detectTrackpad(e) {
+          if (trackpadDetectionComplete) return;
+
+          // Trackpads typically have deltaY values that are not multiples of 120
+          // and are generally smaller and more precise than mouse wheels
+          var deltaY = Math.abs(e.deltaY);
+
+          if (deltaY > 0 && deltaY < 50) {
+            // Small delta values are typical of trackpads
+            isTrackpad = true;
+            trackpadDetectionComplete = true;
+          } else if (deltaY % 120 === 0) {
+            // Mouse wheels typically use multiples of 120
+            trackpadCheckCount++;
+            if (trackpadCheckCount >= 2) {
+              isTrackpad = false;
+              trackpadDetectionComplete = true;
+            }
+          } else if (deltaY > 0) {
+            trackpadCheckCount++;
+            if (trackpadCheckCount >= 3) {
+              trackpadDetectionComplete = true;
+            }
+          }
+        }
+
         // Desktop wheel scrolling: advance a panel per gesture to avoid
         // the "multiple scrolls" effect from CSS snap on traditional mice.
+        // Disabled when trackpad is detected to allow native smooth scrolling.
         var scroller = document.querySelector(".snap-container");
         if (scroller && !prefersReduced) {
           var panels = Array.prototype.slice.call(
@@ -303,6 +335,14 @@
             scroller.addEventListener(
               "wheel",
               function (e) {
+                // Detect trackpad on first few wheel events
+                detectTrackpad(e);
+
+                // Skip custom scroll logic if trackpad is detected
+                if (isTrackpad) {
+                  return;
+                }
+
                 if (!e.deltaY || Math.abs(e.deltaY) <= Math.abs(e.deltaX)) {
                   return;
                 }
@@ -325,6 +365,11 @@
             );
 
             scroller.addEventListener("scroll", function () {
+              // Skip animation handling if trackpad is detected
+              if (isTrackpad) {
+                return;
+              }
+
               if (!isAnimating || pendingIndex == null) return;
               var target = panels[pendingIndex];
               if (!target) {
