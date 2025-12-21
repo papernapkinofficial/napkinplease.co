@@ -48,7 +48,7 @@ body {
 .page-cover,
 .detail-page {
   background: linear-gradient(
-      to bottom,
+      to right,
       rgba(81, 9, 9, 0.8) 0%,
       rgba(156, 18, 18, 0.6) 100%
     ),
