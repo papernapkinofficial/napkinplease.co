@@ -142,6 +142,7 @@ body {
   font-size: clamp(13px, 1.5vw, 16px);
   line-height: 1.6;
   color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 10px;
 }
 
 /* Napkin image on cover */
@@ -225,11 +226,17 @@ body {
   gap: 20px;
 }
 
+.feature-group h2 {
+  font-family: "Montserrat", sans-serif;
+  font-size: clamp(16px, 3vw, 30px);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
 .feature-group h3 {
   font-family: "Montserrat", sans-serif;
   font-size: clamp(13px, 1.6vw, 16px);
   font-weight: 600;
-  margin-bottom: 8px;
   letter-spacing: 0.02em;
 }
 
