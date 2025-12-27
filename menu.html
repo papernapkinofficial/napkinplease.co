@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="css/menu.css" />
     <link rel="icon" href="content/favicon.png" />
   </head>
-  <body>
+  <body id="top">
     <a href="index.html" class="back-home">← Home</a>
     <img src="content/pn-logo-badge.png" alt="PN" class="global-logo" />
 
@@ -456,7 +456,29 @@
             <p>TJ@NAPKINPLEASE.CO</p>
           </div>
         </div>
+
+        <!-- Back to Top Button -->
+        <button class="back-to-top" aria-label="Back to top">↑</button>
       </div>
     </section>
+
+    <script>
+      (function () {
+        const backToTop = document.querySelector(".back-to-top");
+        const prefersReducedMotion = window.matchMedia(
+          "(prefers-reduced-motion: reduce)"
+        ).matches;
+
+        backToTop.addEventListener("click", function () {
+          const top = document.getElementById("top");
+          if (top) {
+            top.scrollIntoView({
+              behavior: prefersReducedMotion ? "auto" : "smooth",
+              block: "start",
+            });
+          }
+        });
+      })();
+    </script>
   </body>
 </html>
