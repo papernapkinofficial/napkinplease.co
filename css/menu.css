@@ -1,31 +1,18 @@
 /* ========================
-   Global / Resets
+   Menu Page Styles
    ======================== */
-@font-face {
-  font-family: "Black Mango";
-  src: url("../fonts/black-mango-regular.ttf") format("truetype");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
+@import "base.css";
 
+/* Menu-specific variable overrides */
 :root {
-  --wine: #7e0e0e;
-  --wine-deep: #5a0a0a;
-  --blue: #a9cbd3;
-  --cream: #f5f5dc;
-  --text-light: #ffffff;
-}
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+  /* --wine-deep-menu: #5a0a0a; */
 }
 
 body {
-  font-family: "Montserrat", system-ui, -apple-system, sans-serif;
-  background: var(--wine-deep);
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-body);
+  background: var(--wine-deep-menu);
   color: #e7e7da;
   line-height: 1.6;
   overflow-x: hidden;
