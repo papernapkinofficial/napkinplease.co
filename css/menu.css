@@ -4,15 +4,12 @@
 @import "base.css";
 
 /* Menu-specific variable overrides */
-:root {
-  /* --wine-deep-menu: #5a0a0a; */
-}
 
 body {
   margin: 0;
   padding: 0;
   font-family: var(--font-body);
-  background: var(--wine-deep-menu);
+  background: var(--wine-deep);
   color: #e7e7da;
   line-height: 1.6;
   overflow-x: hidden;
