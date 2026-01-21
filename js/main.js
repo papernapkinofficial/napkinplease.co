@@ -225,4 +225,65 @@
       element.classList.add("visible");
     });
   }
+
+  // ========================
+  // Portfolio Modal
+  // ========================
+  var portfolioOverlay = document.getElementById("portfolioOverlay");
+  var portfolioModal = document.getElementById("portfolioModal");
+  var portfolioCloseBtn = document.querySelector(".portfolio-modal__close");
+  var portfolioCards = document.querySelectorAll(".portfolio-card");
+  var portfolioContents = document.querySelectorAll(
+    ".portfolio-modal__content"
+  );
+
+  function openPortfolioModal(brandId) {
+    if (!portfolioModal || !portfolioOverlay) return;
+
+    // Hide all content sections, show the selected one
+    portfolioContents.forEach(function (content) {
+      content.classList.remove("visible");
+      if (content.getAttribute("data-brand") === brandId) {
+        content.classList.add("visible");
+      }
+    });
+
+    portfolioOverlay.classList.add("visible");
+    portfolioModal.classList.add("visible");
+    portfolioModal.scrollTop = 0;
+    document.body.style.overflow = "hidden";
+  }
+
+  function closePortfolioModal() {
+    if (!portfolioModal || !portfolioOverlay) return;
+
+    portfolioOverlay.classList.remove("visible");
+    portfolioModal.classList.remove("visible");
+    document.body.style.overflow = "";
+  }
+
+  // Card click handlers
+  portfolioCards.forEach(function (card) {
+    card.addEventListener("click", function () {
+      var brandId = this.getAttribute("data-brand");
+      openPortfolioModal(brandId);
+    });
+  });
+
+  // Close button handler
+  if (portfolioCloseBtn) {
+    portfolioCloseBtn.addEventListener("click", closePortfolioModal);
+  }
+
+  // Close on overlay click
+  if (portfolioOverlay) {
+    portfolioOverlay.addEventListener("click", closePortfolioModal);
+  }
+
+  // Close on Escape key
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && portfolioModal.classList.contains("visible")) {
+      closePortfolioModal();
+    }
+  });
 })();

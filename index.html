@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -138,7 +138,64 @@
           <span>↑</span>
         </a>
       </section>
+      <!-- Section: Portfolio -->
+      <section id="portfolio" class="panel portfolio">
+        <div class="container narrow">
+          <header class="section-head fade-on-scroll">
+            <h2 class="eyebrow">OUR</h2>
+            <h2 class="title">WORK</h2>
+          </header>
 
+          <div class="portfolio-grid fade-on-scroll">
+            <article class="portfolio-card" data-brand="brand1">
+              <div
+                class="portfolio-card__bg"
+                style="
+                  background-image: url(&quot;content/portfolio/brand1-bg.jpg&quot;);
+                "
+              ></div>
+              <img
+                class="portfolio-card__logo"
+                src="content/portfolio/brand1-logo.png"
+                alt="Brand 1 logo"
+              />
+              <span class="portfolio-card__cta">Learn More</span>
+              <h3 class="portfolio-card__name">Brand Name 1</h3>
+            </article>
+            <article class="portfolio-card" data-brand="brand2">
+              <div
+                class="portfolio-card__bg"
+                style="
+                  background-image: url(&quot;content/portfolio/brand2-bg.jpg&quot;);
+                "
+              ></div>
+              <img
+                class="portfolio-card__logo"
+                src="content/portfolio/brand2-logo.png"
+                alt="Brand 2 logo"
+              />
+              <span class="portfolio-card__cta">Learn More</span>
+              <h3 class="portfolio-card__name">Brand Name 2</h3>
+            </article>
+            <article class="portfolio-card" data-brand="brand3">
+              <div
+                class="portfolio-card__bg"
+                style="
+                  background-image: url(&quot;content/portfolio/brand3-bg.jpg&quot;);
+                "
+              ></div>
+              <img
+                class="portfolio-card__logo"
+                src="content/portfolio/brand3-logo.png"
+                alt="Brand 3 logo"
+              />
+              <span class="portfolio-card__cta">Learn More</span>
+              <h3 class="portfolio-card__name">Brand Name 3</h3>
+            </article>
+          </div>
+        </div>
+        <span class="hero-cta__arrow">▾</span>
+      </section>
       <!-- Section: Contact -->
       <section id="contact" class="panel contact">
         <div class="contact__brand">Paper Napkin</div>
@@ -191,6 +248,116 @@
       </section>
     </main>
 
+    <!-- Portfolio Modal -->
+    <div class="portfolio-modal-overlay" id="portfolioOverlay"></div>
+    <div class="portfolio-modal" id="portfolioModal">
+      <button class="portfolio-modal__close" aria-label="Close">&times;</button>
+
+      <!-- Brand 1 Content -->
+      <div class="portfolio-modal__content" data-brand="brand1">
+        <div class="portfolio-modal__header">
+          <h2 class="portfolio-modal__brand-name">Brand Name 1</h2>
+          <p class="portfolio-modal__tagline">
+            A brief tagline about this brand
+          </p>
+        </div>
+        <div class="portfolio-modal__section">
+          <h3 class="portfolio-modal__section-title">Our Partnership</h3>
+          <p class="portfolio-modal__description">
+            brand1brand1brand1brand1Lorem ipsum dolor sit amet, consectetur
+            adipiscing elit. Sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+            exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat. Duis aute irure dolor in reprehenderit in voluptate velit
+            esse cillum dolore eu fugiat nulla pariatur.
+          </p>
+          <p class="portfolio-modal__description">
+            Pellentesque habitant morbi tristique senectus et netus et malesuada
+            fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae,
+            ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam
+            egestas semper. Aenean ultricies mi vitae est. Mauris placerat
+            eleifend leo.
+          </p>
+          <p class="portfolio-modal__description">
+            Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat
+            wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean
+            fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci,
+            sagittis tempus lacus enim ac dui.
+          </p>
+        </div>
+        <!-- Add video, gallery, or Instagram sections as needed -->
+      </div>
+
+      <!-- Brand 2 Content -->
+      <div class="portfolio-modal__content" data-brand="brand2">
+        <div class="portfolio-modal__header">
+          <h2 class="portfolio-modal__brand-name">Brand Name 2</h2>
+          <p class="portfolio-modal__tagline">
+            A brief tagline about this brand
+          </p>
+        </div>
+        <div class="portfolio-modal__section">
+          <h3 class="portfolio-modal__section-title">Our Partnership</h3>
+          <p class="portfolio-modal__description">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur.
+          </p>
+          <p class="portfolio-modal__description">
+            Pellentesque habitant morbi tristique senectus et netus et malesuada
+            fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae,
+            ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam
+            egestas semper. Aenean ultricies mi vitae est. Mauris placerat
+            eleifend leo.
+          </p>
+          <p class="portfolio-modal__description">
+            Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat
+            wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean
+            fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci,
+            sagittis tempus lacus enim ac dui.
+          </p>
+        </div>
+      </div>
+
+      <!-- Brand 3 Content -->
+      <div class="portfolio-modal__content" data-brand="brand3">
+        <div class="portfolio-modal__header">
+          <h2 class="portfolio-modal__brand-name">Brand Name 3</h2>
+          <p class="portfolio-modal__tagline">
+            A brief tagline about this brand
+          </p>
+        </div>
+        <div class="portfolio-modal__section">
+          <h3 class="portfolio-modal__section-title">Our Partnership</h3>
+          <p class="portfolio-modal__description">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur.
+          </p>
+          <p class="portfolio-modal__description">
+            Pellentesque habitant morbi tristique senectus et netus et malesuada
+            fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae,
+            ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam
+            egestas semper. Aenean ultricies mi vitae est. Mauris placerat
+            eleifend leo.
+          </p>
+          <p class="portfolio-modal__description">
+            Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat
+            wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean
+            fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci,
+            sagittis tempus lacus enim ac dui.
+          </p>
+        </div>
+      </div>
+    </div>
+
     <script src="js/main.js"></script>
+    <script async src="https://www.instagram.com/embed.js"></script>
   </body>
 </html>

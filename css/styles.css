@@ -145,8 +145,9 @@ body {
   margin: 0 0 0.25rem 0;
   line-height: 0.9;
   letter-spacing: 0.02em;
-  font-family: "Black Mango", "Noto Serif Display",
-    "Noto Serif Display ExtraCondensed", "Playfair Display", Georgia, serif;
+  font-family:
+    "Black Mango", "Noto Serif Display", "Noto Serif Display ExtraCondensed",
+    "Playfair Display", Georgia, serif;
   font-weight: 500;
   font-size: clamp(70px, 8vw, 96px);
   text-transform: uppercase;
@@ -183,7 +184,13 @@ body {
 .aside-small {
   margin: 0;
   font-size: clamp(14px, 1.8vw, 18px);
-  font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, Arial,
+  font-family:
+    "Montserrat",
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    Roboto,
+    Arial,
     sans-serif;
   opacity: 0.9;
 }
@@ -308,7 +315,8 @@ body {
 .manifesto__quote {
   margin: 0;
   font-style: italic;
-  font-family: "Playfair Display", Georgia, serif; /* substitute for Black Mango */
+  font-family:
+    "Playfair Display", Georgia, serif; /* substitute for Black Mango */
   font-weight: 600;
   font-size: clamp(41.4px, 9.2vw, 92px);
   line-height: 1.06;
@@ -353,8 +361,8 @@ body {
 
 .section-head .eyebrow {
   margin: 0;
-  font-family: "Black Mango", "Noto Serif Display", "Playfair Display", Georgia,
-    serif;
+  font-family:
+    "Black Mango", "Noto Serif Display", "Playfair Display", Georgia, serif;
   font-weight: 500;
   letter-spacing: 0.08em;
   font-size: clamp(48px, 9vw, 96px);
@@ -363,8 +371,8 @@ body {
 
 .section-head .title {
   margin: 0;
-  font-family: "Black Mango", "Noto Serif Display", "Playfair Display", Georgia,
-    serif;
+  font-family:
+    "Black Mango", "Noto Serif Display", "Playfair Display", Georgia, serif;
   letter-spacing: 0.06em;
   font-weight: 500;
   font-size: clamp(48px, 9vw, 96px);
@@ -387,8 +395,8 @@ body {
 
 .card h3 {
   margin-top: 0;
-  font-family: "Black Mango", "Noto Serif Display", "Playfair Display", Georgia,
-    serif;
+  font-family:
+    "Black Mango", "Noto Serif Display", "Playfair Display", Georgia, serif;
   text-transform: uppercase;
   text-align: center;
   font-weight: 600;
@@ -399,6 +407,265 @@ body {
   margin-bottom: 0;
   color: #333;
   line-height: 1.65;
+}
+
+/* ========================
+   Section: Portfolio
+   ======================== */
+.portfolio {
+  background: #fff;
+  color: var(--text);
+}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(16px, 2.5vw, 32px);
+}
+
+.portfolio-card {
+  aspect-ratio: 2/3;
+  position: relative;
+  border-radius: var(--radius);
+  overflow: hidden;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.portfolio-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.portfolio-card__bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 0;
+}
+
+.portfolio-card__bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.1) 0%,
+    rgba(0, 0, 0, 0.5) 100%
+  );
+}
+
+.portfolio-card__logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 60%;
+  max-height: 40%;
+  object-fit: contain;
+  z-index: 2;
+  transition: opacity 0.3s ease;
+}
+
+.portfolio-card__cta {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  font-family: var(--font-display);
+  font-size: clamp(18px, 2.5vw, 24px);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #fff;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.portfolio-card:hover .portfolio-card__logo {
+  opacity: 0;
+}
+
+.portfolio-card:hover .portfolio-card__cta {
+  opacity: 1;
+}
+
+.portfolio-card__name {
+  position: relative;
+  z-index: 2;
+  margin: 0;
+  padding: clamp(16px, 2vw, 24px);
+  font-family: var(--font-display);
+  font-size: clamp(14px, 1.8vw, 20px);
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #fff;
+  text-align: center;
+}
+
+/* ========================
+   Portfolio Modal
+   ======================== */
+.portfolio-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 99;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
+}
+
+.portfolio-modal-overlay.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.portfolio-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, calc(-50% + 100vh));
+  z-index: 100;
+  background: #fff;
+  border-radius: var(--radius);
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.3);
+  width: min(900px, 95vw);
+  max-height: 90vh;
+  overflow-y: auto;
+  transition: transform 0.4s ease;
+}
+
+.portfolio-modal.visible {
+  transform: translate(-50%, -50%);
+}
+
+.portfolio-modal__close {
+  position: sticky;
+  top: 16px;
+  float: right;
+  margin: 16px 16px 0 0;
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  font-size: 28px;
+  line-height: 1;
+  color: #333;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.portfolio-modal__close:hover {
+  background: rgba(0, 0, 0, 0.1);
+  transform: scale(1.1);
+}
+
+.portfolio-modal__content {
+  display: none;
+  padding: clamp(24px, 5vw, 48px);
+  padding-top: 0;
+}
+
+.portfolio-modal__content.visible {
+  display: block;
+}
+
+.portfolio-modal__header {
+  text-align: center;
+  margin-bottom: clamp(24px, 4vw, 40px);
+}
+
+.portfolio-modal__brand-name {
+  margin: 0 0 8px 0;
+  font-family: var(--font-display);
+  font-size: clamp(32px, 5vw, 48px);
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--text);
+}
+
+.portfolio-modal__tagline {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(16px, 2vw, 20px);
+  color: var(--muted);
+}
+
+.portfolio-modal__section {
+  margin-bottom: clamp(32px, 5vw, 48px);
+}
+
+.portfolio-modal__section-title {
+  margin: 0 0 16px 0;
+  font-family: var(--font-display);
+  font-size: clamp(18px, 2.5vw, 24px);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text);
+}
+
+.portfolio-modal__description {
+  font-size: clamp(15px, 1.8vw, 17px);
+  line-height: 1.7;
+  color: #444;
+}
+
+.portfolio-modal__video {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  margin-bottom: 16px;
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.portfolio-modal__video iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.portfolio-modal__gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(8px, 1.5vw, 16px);
+}
+
+.portfolio-modal__gallery img {
+  width: 100%;
+  border-radius: calc(var(--radius) / 2);
+  aspect-ratio: 4/3;
+  object-fit: cover;
+}
+
+.portfolio-modal__instagram {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: clamp(16px, 2vw, 24px);
+  justify-items: center;
 }
 
 /* ========================
@@ -422,8 +689,8 @@ body {
 .story .eyebrow,
 .story .title {
   margin: 0;
-  font-family: "Black Mango", "Noto Serif Display", "Playfair Display", Georgia,
-    sans-serif;
+  font-family:
+    "Black Mango", "Noto Serif Display", "Playfair Display", Georgia, sans-serif;
   font-weight: 800;
   font-size: clamp(57.6px, 10.8vw, 115.2px);
   line-height: 0.9;
@@ -550,8 +817,8 @@ body {
 
 .contact__head h2 {
   margin: 0 0 0.5rem 0;
-  font-family: "Black Mango", "Noto Serif Display", "Playfair Display", Georgia,
-    serif;
+  font-family:
+    "Black Mango", "Noto Serif Display", "Playfair Display", Georgia, serif;
   font-weight: 500;
   font-size: clamp(43.7px, 6.9vw, 73.6px); /* increased by 15% */
   text-transform: uppercase;
@@ -680,6 +947,12 @@ body {
   .cards {
     grid-template-columns: 1fr 1fr;
   }
+  .portfolio-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .portfolio-card {
+    aspect-ratio: 3/4;
+  }
   .story__grid {
     grid-template-columns: 1fr;
   }
@@ -699,6 +972,22 @@ body {
 
 @media (max-width: 640px) {
   .cards {
+    grid-template-columns: 1fr;
+  }
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+    max-width: 320px;
+    margin: 0 auto;
+  }
+  .portfolio-card {
+    aspect-ratio: 2/3;
+  }
+  .portfolio-modal {
+    width: 100vw;
+    max-height: 95vh;
+    border-radius: var(--radius);
+  }
+  .portfolio-modal__gallery {
     grid-template-columns: 1fr;
   }
 
