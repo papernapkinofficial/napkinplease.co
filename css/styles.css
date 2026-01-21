@@ -432,14 +432,13 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  transform: scale(1.1);
   transition:
     transform 0.3s ease,
     box-shadow 0.3s ease;
 }
 
 .portfolio-card:hover {
-  transform: scale(1.1) translateY(-8px);
+  transform: scale(1.05) translateY(-8px);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 }
 
@@ -991,11 +990,19 @@ body {
   }
   .portfolio-grid {
     grid-template-columns: 1fr;
-    max-width: 320px;
-    margin: 0 auto;
   }
   .portfolio-card {
     aspect-ratio: 2/3;
+  }
+  .panel.portfolio {
+    height: auto;
+    min-height: 100vh;
+    max-height: none;
+    overflow: visible;
+    padding-bottom: 48px;
+  }
+  .portfolio .section-head {
+    padding-top: clamp(48px, 10vh, 80px);
   }
   .portfolio-modal {
     width: 100vw;
