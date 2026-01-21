@@ -355,7 +355,7 @@ body {
 
 .section-head {
   text-align: center;
-  margin-bottom: clamp(24px, 5vh, 48px);
+  margin-bottom: clamp(48px, 8vh, 80px);
   color: #0d1747;
 }
 
@@ -420,7 +420,7 @@ body {
 .portfolio-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: clamp(16px, 2.5vw, 32px);
+  gap: clamp(32px, 5vw, 64px);
 }
 
 .portfolio-card {
@@ -432,13 +432,14 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  transform: scale(1.1);
   transition:
     transform 0.3s ease,
     box-shadow 0.3s ease;
 }
 
 .portfolio-card:hover {
-  transform: translateY(-8px);
+  transform: scale(1.1) translateY(-8px);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 }
 
@@ -487,6 +488,7 @@ body {
   text-transform: uppercase;
   color: #fff;
   opacity: 0;
+  white-space: nowrap;
   transition: opacity 0.3s ease;
 }
 
@@ -735,12 +737,11 @@ body {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
 }
 
-/* Story back button - positioned at the very bottom */
-.story__back-btn {
+/* Panel back button - top right corner */
+.panel__back-btn {
   position: absolute;
-  right: 0%;
-  top: 10%;
-  transform: translateX(-50%);
+  right: clamp(20px, 3vw, 40px);
+  top: clamp(20px, 3vw, 40px);
   z-index: 2;
   width: 48px;
   height: 48px;
@@ -757,15 +758,29 @@ body {
   border: 2px solid rgba(255, 255, 255, 0.4);
 }
 
-.story__back-btn:hover {
+.panel__back-btn:hover {
   background: rgba(255, 255, 255, 0.35);
   border-color: rgba(255, 255, 255, 0.6);
-  transform: translateX(-50%) translateY(-4px);
+  transform: translateY(-4px);
 }
 
-.story__back-btn span {
+.panel__back-btn span {
   display: block;
   line-height: 1;
+}
+
+/* Dark variant for light background sections */
+.services .panel__back-btn,
+.portfolio .panel__back-btn {
+  background: rgba(0, 0, 0, 0.15);
+  color: var(--text);
+  border-color: rgba(0, 0, 0, 0.2);
+}
+
+.services .panel__back-btn:hover,
+.portfolio .panel__back-btn:hover {
+  background: rgba(0, 0, 0, 0.25);
+  border-color: rgba(0, 0, 0, 0.35);
 }
 
 /* ========================
@@ -991,9 +1006,9 @@ body {
     grid-template-columns: 1fr;
   }
 
-  .story__back-btn,
-  .pricing__back-btn {
-    bottom: 16px;
+  .panel__back-btn {
+    right: 16px;
+    top: 16px;
   }
   /* stay above safari bottom navigation bar */
   .contact__back-btn {

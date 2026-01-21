@@ -42,17 +42,17 @@
     });
   }
 
-  // Story section back button
-  var storyBack = document.querySelector(".story__back-btn");
-  if (storyBack) {
-    storyBack.addEventListener("click", function (e) {
+  // Panel back buttons (Manifesto, Services, Portfolio, Story)
+  var panelBackBtns = document.querySelectorAll(".panel__back-btn");
+  panelBackBtns.forEach(function (btn) {
+    btn.addEventListener("click", function (e) {
       e.preventDefault();
       var target =
         document.getElementById("hero") || document.documentElement;
       smoothScrollToElement(target);
       if (history.pushState) history.pushState(null, "", "#hero");
     });
-  }
+  });
 
   // Contact section back button
   var contactBack = document.querySelector(".contact__back-btn");
