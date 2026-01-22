@@ -437,9 +437,11 @@ body {
     box-shadow 0.3s ease;
 }
 
-.portfolio-card:hover {
-  transform: scale(1.05) translateY(-8px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+@media (hover: hover) {
+  .portfolio-card:hover {
+    transform: scale(1.05) translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  }
 }
 
 .portfolio-card__bg {
@@ -504,12 +506,14 @@ body {
   transition: opacity 0.3s ease;
 }
 
-.portfolio-card:hover .portfolio-card__logo {
-  opacity: 0;
-}
+@media (hover: hover) {
+  .portfolio-card:hover .portfolio-card__logo {
+    opacity: 0;
+  }
 
-.portfolio-card:hover .portfolio-card__cta {
-  opacity: 1;
+  .portfolio-card:hover .portfolio-card__cta {
+    opacity: 1;
+  }
 }
 
 .portfolio-card__name {
@@ -1012,12 +1016,16 @@ body {
 }
 
 @media (max-width: 640px) {
+  .section-head {
+    margin-bottom: clamp(24px, 5vh, 40px);
+  }
   .cards {
     grid-template-columns: 1fr;
   }
   .portfolio-modal {
     width: 100vw;
-    max-height: 95vh;
+    max-height: 75vh;
+    max-height: 75dvh;
     border-radius: var(--radius);
   }
   .portfolio-modal__gallery {
