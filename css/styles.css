@@ -989,21 +989,44 @@ body {
   .cards {
     grid-template-columns: 1fr;
   }
-  .portfolio-grid {
-    grid-template-columns: 1fr;
-  }
-  .portfolio-card {
-    aspect-ratio: 2/3;
-  }
   .panel.portfolio {
-    height: auto;
-    min-height: 100vh;
-    max-height: none;
-    overflow: visible;
-    padding-bottom: 48px;
+    height: 100vh;
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    padding: clamp(24px, 5dvh, 48px) 0;
+  }
+  .portfolio .container.narrow {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
   }
   .portfolio .section-head {
-    padding-top: clamp(48px, 10vh, 80px);
+    flex-shrink: 0;
+    margin-bottom: clamp(16px, 3dvh, 32px);
+  }
+  .portfolio-grid {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(12px, 2dvh, 20px);
+    min-height: 0;
+  }
+  .portfolio-card {
+    flex: 1;
+    aspect-ratio: unset;
+    min-height: 0;
+  }
+  .portfolio-card__logo {
+    max-width: 50%;
+    max-height: 70%;
+  }
+  .portfolio-card__name {
+    display: none;
+  }
+  .portfolio-card__cta {
+    display: none;
   }
   .portfolio-modal {
     width: 100vw;
