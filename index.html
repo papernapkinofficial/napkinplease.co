@@ -18,7 +18,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/styles.css" />
-    <link rel="icon" href="content/favicon.png" />
+    <link rel="icon" href="content/favicon-32.png" />
   </head>
   <body>
     <main class="snap-container">
@@ -137,10 +137,15 @@
             </p>
           </div>
           <figure class="story__image fade-on-scroll">
-            <img
-              src="content/napkin-logo.jpg"
-              alt="Coffee ring on a paper napkin"
-            />
+            <picture>
+              <source srcset="content/napkin-logo.webp" type="image/webp" />
+              <img
+                loading="lazy"
+                decoding="async"
+                src="content/napkin-logo.jpg"
+                alt="Coffee ring on a paper napkin"
+              />
+            </picture>
           </figure>
         </div>
         <a class="panel__back-btn" href="#hero" aria-label="Back to top">
@@ -157,12 +162,7 @@
 
           <div class="portfolio-grid fade-on-scroll">
             <article class="portfolio-card" data-brand="brand1">
-              <div
-                class="portfolio-card__bg"
-                style="
-                  background-image: url(&quot;content/portfolio/alford/alford-bg.jpg&quot;);
-                "
-              ></div>
+              <div class="portfolio-card__bg portfolio-card__bg--alford"></div>
               <img
                 class="portfolio-card__logo"
                 src="content/portfolio/alford/alford-logo.png"
@@ -172,12 +172,7 @@
               <h3 class="portfolio-card__name">ALFORD DISTRIBUTING</h3>
             </article>
             <article class="portfolio-card" data-brand="brand2">
-              <div
-                class="portfolio-card__bg"
-                style="
-                  background-image: url(&quot;content/portfolio/townpump/otp-bg.png&quot;);
-                "
-              ></div>
+              <div class="portfolio-card__bg portfolio-card__bg--townpump"></div>
               <img
                 class="portfolio-card__logo"
                 src="content/portfolio/townpump/otp-logo.png"
@@ -187,12 +182,7 @@
               <h3 class="portfolio-card__name">ORIGINAL TOWN PUMP</h3>
             </article>
             <article class="portfolio-card" data-brand="brand3">
-              <div
-                class="portfolio-card__bg"
-                style="
-                  background-image: url(&quot;content/portfolio/1905/1905-bg.jpg&quot;);
-                "
-              ></div>
+              <div class="portfolio-card__bg portfolio-card__bg--1905"></div>
               <img
                 class="portfolio-card__logo"
                 src="content/portfolio/1905/1905-logo.png"
@@ -211,7 +201,10 @@
       <section id="contact" class="panel contact">
         <div class="contact__brand">Paper Napkin</div>
         <div class="contact__bg" aria-hidden="true">
-          <img src="content/contact-photo.jpg" alt="" />
+          <picture>
+            <source srcset="content/contact-photo.webp" type="image/webp" />
+            <img loading="lazy" decoding="async" src="content/contact-photo.jpg" alt="" />
+          </picture>
         </div>
 
         <div class="container contact__grid">
@@ -362,7 +355,6 @@
       </div>
     </div>
 
-    <script src="js/main.js"></script>
-    <script async src="https://www.instagram.com/embed.js"></script>
+    <script defer src="js/main.js"></script>
   </body>
 </html>
