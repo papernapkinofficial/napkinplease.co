@@ -958,33 +958,6 @@ body {
   .cards {
     grid-template-columns: 1fr 1fr;
   }
-  .portfolio-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-  .portfolio-card {
-    aspect-ratio: 3/4;
-  }
-  .story__grid {
-    grid-template-columns: 1fr;
-  }
-  .contact__grid {
-    grid-template-columns: 1fr;
-  }
-
-  /* move contact brand to the right on narrower viewports to avoid
-     colliding with the contact header */
-  .contact__brand {
-    left: auto;
-    right: 18px;
-    text-align: right;
-    font-size: clamp(14px, 3.5vw, 24px);
-  }
-}
-
-@media (max-width: 640px) {
-  .cards {
-    grid-template-columns: 1fr;
-  }
   .panel.portfolio {
     height: 100vh;
     height: 100dvh;
@@ -1021,8 +994,26 @@ body {
   .portfolio-card__name {
     display: none;
   }
-  .portfolio-card__cta {
-    display: none;
+  .story__grid {
+    grid-template-columns: 1fr;
+  }
+  .contact__grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* move contact brand to the right on narrower viewports to avoid
+     colliding with the contact header */
+  .contact__brand {
+    left: auto;
+    right: 18px;
+    text-align: right;
+    font-size: clamp(14px, 3.5vw, 24px);
+  }
+}
+
+@media (max-width: 640px) {
+  .cards {
+    grid-template-columns: 1fr;
   }
   .portfolio-modal {
     width: 100vw;
