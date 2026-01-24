@@ -20,6 +20,6 @@ jobs:
           REMOTE_USER: ${{ secrets.FTP_USERNAME }}
           REMOTE_PORT: "21098"
           SOURCE: "./"
-          TARGET: "/public_html/"
+          TARGET: "/home/napkqoyv/public_html"
           EXCLUDE: ".git*, .claude/, CLAUDE.md, README.md, .github/"
           SCRIPT_BEFORE: "ls"
