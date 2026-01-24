@@ -3,7 +3,7 @@ name: Deploy to Namecheap
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   deploy:
@@ -28,3 +28,4 @@ jobs:
             **/CLAUDE.md
             **/README.md
             **/.github/**
+
