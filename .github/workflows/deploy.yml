@@ -13,12 +13,13 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Deploy via SSH
-        uses: easingthemes/ssh-deploy@v5
-        with:
+        uses: easingthemes/ssh-deploy@v5.1.0
+        env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           REMOTE_HOST: ${{ secrets.FTP_SERVER }}
           REMOTE_USER: ${{ secrets.FTP_USERNAME }}
-          REMOTE_PORT: 21098
-          TARGET: /public_html/
-          SOURCE: ./
+          REMOTE_PORT: "21098"
+          SOURCE: "./"
+          TARGET: "/public_html/"
           EXCLUDE: ".git*, .claude/, CLAUDE.md, README.md, .github/"
+          SCRIPT_BEFORE: "ls"
